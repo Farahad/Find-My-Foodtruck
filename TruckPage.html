@@ -4,24 +4,33 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="./main.css">
         <title>Find my Foodtruck</title>
     </head>
     <body>
-        <h1>Find my Foodtruck</h1>
-        <fieldset>
-            <legend>Insert your location here:</legend>
-            <form>
-                Food Truck Name:<br>
-                <input type="text" name="name"><br>
-                Description (max 250 chars):<br>
-                <textarea name="description" rows="8" cols="40" maxlength="250"></textarea><br><br>
+    <div class="header">
+            <h2>Find My Foodtruck!</h2>
+        </div>
+        <nav id="navbar">
+            <a class="active" href="./index.html">Home</a>
+            <a href="./TruckPage.html">Upload Geolocation</a>
+        </nav>
+        <div class="Info">
+            <fieldset>
+                <legend>Insert your location here:</legend>
+                <form>
+                    Food Truck Name:<br>
+                    <input type="text" name="name"><br>
+                    Description (max 250 chars):<br>
+                    <textarea name="description" rows="8" cols="40" maxlength="250"></textarea><br><br>
 
-                Latitude:<br>
-                <input type="text" name="latitude"><br>
-                Longitude:<br>
-                <input type="text" name="longitude"><br><br>
-                <input type="submit" value="Submit">
-            </form> 
-        </fieldset>
+                    Latitude:<br>
+                    <input type="text" name="latitude"><br>
+                    Longitude:<br>
+                    <input type="text" name="longitude"><br><br>
+                    <input type="submit" value="Submit">
+                </form> 
+            </fieldset>
+        </div>
     </body>
 </html>
