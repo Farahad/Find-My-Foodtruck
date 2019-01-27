@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="map-test">
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+        function parseURLParams(url) {
+            var queryStart = url.indexOf("?") + 1,
+                queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+                query = url.slice(queryStart, queryEnd - 1),
+                pairs = query.replace(/\+/g, " ").split("&"),
+                parms = {}, i, n, v, nv;
+
+            if (query === url || query === "") return;
+
+            for (i = 0; i < pairs.length; i++) {
+                nv = pairs[i].split("=", 2);
+                n = decodeURIComponent(nv[0]);
+                v = decodeURIComponent(nv[1]);
+
+                if (!parms.hasOwnProperty(n)) parms[n] = [];
+                parms[n].push(nv.length === 2 ? v : null);
+            }
+            return parms;
+        }
+        var urlString = window.location.href;
+        urlParams = parseURLParams(urlString);
+        // Initialize and add the map
+        function initMap() {
+        // The locations
+        var Clemson = {lat: 34.6834, lng: -82.8374};
+        var TastyThai = {urlParams};
+        var FoodFountain = {lat: 39.6834, lng: -81.8374};
+        // The map
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 12, center: Clemson});
+        // The marker
+        var marker = new google.maps.Marker({position: TastyThai, map: map});
+        }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwRumm0oNQ_2vkWVkc-dz2v5vEp9tp_t0&callback=initMap">
+    </script>
+</div>
+<div class="Foodtrucks">
+    <select name="truckSelection">
+        <option value="lat: 34.6838, lng: -82.384">TastyThai</option>
+        <option value="lat: 34.6844, lng: -82.372">FantasticFusion</option>
+        <option value="lat: 34.6934, lng: -82.374">SnackStop</option>
+        <option value="lat: 34.6864, lng: -82.354">DeliciousDoodles</option>
+    </select> 
+    <input type="submit" value="submit">
+</div>
+{% endblock %}
