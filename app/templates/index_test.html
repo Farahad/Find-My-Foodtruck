@@ -14,11 +14,21 @@
         var map = new google.maps.Map(
             document.getElementById('map'), {zoom: 12, center: Clemson});
         // The marker
-        var marker = new google.maps.Marker({position: TastyThai, map: map});
+		var infowindow = new google.maps.InfoWindow({
+		content: {{ description }}
+		});
+
+        var marker = new google.maps.Marker({position: Clemson, map: map, title: {{ name }} });
+		
+		marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+
         }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwRumm0oNQ_2vkWVkc-dz2v5vEp9tp_t0&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHHYaxVtK1l_pWJN2isL6K88SbRf6U7A&callback=initMap">
     </script>
 </div>
+
 {% endblock %}
